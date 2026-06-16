@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="id" class="h-full">
  <head><script src="/_sdk/telemetry_sdk.js"></script>
+  <script src="/_sdk/telemetry_sdk.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
   <title>Jejak Karyaku 🎨</title>
@@ -186,8 +187,7 @@
    <nav class="sticky top-0 z-40 p-3">
     <div class="max-w-6xl mx-auto bg-white rounded-3xl shadow-lg p-4 flex justify-between items-center">
      <h1 id="app-title" class="text-2xl font-black text-pink-500">JejakKaryaku 🎨</h1>
-     <div class="flex gap-2 items-center">
-      <button onclick="showView('home')" class="px-4 py-2 rounded-xl hover:bg-pink-50 font-bold">Beranda</button> <button id="admin-nav-btn" onclick="openLogin()" class="kids-btn btn-secondary px-5 py-2 relative notification-badge"> Guru 🍎 <span id="notif-floating" class="badge-number hidden"></span> </button>
+     <div class="flex gap-2 items-center"><button onclick="showView('home')" class="px-4 py-2 rounded-xl hover:bg-pink-50 font-bold">Beranda</button> <button id="admin-nav-btn" onclick="openLogin()" class="kids-btn btn-secondary px-5 py-2 relative notification-badge"> Guru 🍎 <span id="notif-floating" class="badge-number hidden"></span> </button>
      </div>
     </div>
    </nav>
@@ -199,11 +199,9 @@
      </div>
      <div id="student-grid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4"></div>
     </section>
-    <section id="view-gallery" class="view hidden space-y-5">
-     <button onclick="showView('home')" class="kids-btn bg-white px-5 py-3 rounded-2xl shadow font-bold">← Kembali</button>
+    <section id="view-gallery" class="view hidden space-y-5"><button onclick="showView('home')" class="kids-btn bg-white px-5 py-3 rounded-2xl shadow font-bold">← Kembali</button>
      <div id="gallery-header" class="card p-6"></div>
-     <div class="flex justify-end">
-      <button id="download-pdf-btn" onclick="downloadStudentPortfolio()" class="kids-btn bg-green-500 text-white px-5 py-3 rounded-2xl shadow font-bold"> <i data-lucide="file-text" style="width:16px;height:16px;display:inline-block;vertical-align:middle;margin-right:6px;"></i> Download Portofolio PDF </button>
+     <div class="flex justify-end"><button id="download-pdf-btn" onclick="downloadStudentPortfolio()" class="kids-btn bg-green-500 text-white px-5 py-3 rounded-2xl shadow font-bold"> <i data-lucide="file-text" style="width:16px;height:16px;display:inline-block;vertical-align:middle;margin-right:6px;"></i> Download Portofolio PDF </button>
      </div>
      <div id="gallery-grid" class="gallery-slider"></div>
     </section>
@@ -214,8 +212,7 @@
       </div><button onclick="logout()" class="text-red-400 font-bold">Keluar</button>
      </div>
      <div class="grid lg:grid-cols-3 gap-5">
-      <div class="space-y-4">
-       <button onclick="showModal('modal-student')" class="kids-btn btn-primary w-full py-4 text-lg">+ Tambah Murid</button>
+      <div class="space-y-4"><button onclick="showModal('modal-student')" class="kids-btn btn-primary w-full py-4 text-lg">+ Tambah Murid</button>
        <div id="admin-student-list" class="space-y-3"></div>
       </div>
       <div class="lg:col-span-2 card p-6">
@@ -227,17 +224,14 @@
    </main><!-- Modal PIN -->
    <div id="modal-password" class="hidden fixed inset-0 modal z-50 flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl p-7 w-full max-w-sm">
-     <div id="pin-student-info" class="text-center mb-4">
-      <img id="pin-student-avatar" class="w-20 h-20 rounded-full mx-auto object-cover mb-2" alt="Avatar siswa">
+     <div id="pin-student-info" class="text-center mb-4"><img id="pin-student-avatar" class="w-20 h-20 rounded-full mx-auto object-cover mb-2" alt="Avatar siswa">
       <h3 id="pin-student-name" class="text-xl font-black"></h3>
      </div>
      <h3 class="text-2xl font-black text-center mb-4">Masukkan PIN 🔐</h3>
      <div class="space-y-4">
-      <div class="flex justify-center gap-3">
-       <input type="password" id="pin-input" maxlength="6" class="w-full p-4 text-center text-2xl rounded-2xl bg-slate-100 outline-none tracking-widest" placeholder="••••••">
+      <div class="flex justify-center gap-3"><input type="password" id="pin-input" maxlength="6" class="w-full p-4 text-center text-2xl rounded-2xl bg-slate-100 outline-none tracking-widest" placeholder="••••••">
       </div>
-      <div class="pin-dots" id="pin-dots">
-       <span class="pin-dot"></span><span class="pin-dot"></span> <span class="pin-dot"></span><span class="pin-dot"></span> <span class="pin-dot"></span><span class="pin-dot"></span>
+      <div class="pin-dots" id="pin-dots"><span class="pin-dot"></span><span class="pin-dot"></span> <span class="pin-dot"></span><span class="pin-dot"></span> <span class="pin-dot"></span><span class="pin-dot"></span>
       </div><button onclick="verifyPassword()" class="kids-btn btn-primary w-full py-4 text-lg">Buka Galeri 🎨</button> <button onclick="hideModal('modal-password')" class="w-full text-slate-400 font-bold">Tutup</button>
      </div>
     </div>
@@ -245,8 +239,7 @@
    <div id="modal-login" class="hidden fixed inset-0 modal z-50 flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl p-7 w-full max-w-sm">
      <h3 class="text-3xl font-black text-center mb-6">Login Guru 🍎</h3>
-     <div class="space-y-3">
-      <input id="login-user" type="text" placeholder="Username" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <input id="login-pass" type="password" placeholder="Password" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <button onclick="handleLogin()" class="kids-btn btn-secondary w-full py-4 text-lg">Login</button> <button onclick="hideModal('modal-login')" class="w-full text-slate-400 font-bold">Tutup</button>
+     <div class="space-y-3"><input id="login-user" type="text" placeholder="Username" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <input id="login-pass" type="password" placeholder="Password" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <button onclick="handleLogin()" class="kids-btn btn-secondary w-full py-4 text-lg">Login</button> <button onclick="hideModal('modal-login')" class="w-full text-slate-400 font-bold">Tutup</button>
      </div>
     </div>
    </div><!-- Modal Upload -->
@@ -255,8 +248,7 @@
      <div class="flex justify-between items-center mb-5">
       <h3 id="upload-modal-title" class="text-2xl font-black">Kelola Karya</h3><button onclick="hideModal('modal-upload')" class="text-2xl text-slate-400">✖</button>
      </div>
-     <div class="space-y-4 bg-pink-50 p-5 rounded-3xl">
-      <input id="up-judul" type="text" placeholder="Judul karya" class="w-full p-4 rounded-2xl outline-none"> <input id="up-file" type="file" accept="image/*" class="w-full"> <img id="preview-upload" class="hidden w-full rounded-2xl shadow-md" alt="Preview"> <button onclick="processUpload()" class="kids-btn btn-primary w-full py-4">Upload 🚀</button>
+     <div class="space-y-4 bg-pink-50 p-5 rounded-3xl"><input id="up-judul" type="text" placeholder="Judul karya" class="w-full p-4 rounded-2xl outline-none"> <input id="up-file" type="file" accept="image/*" class="w-full"> <img id="preview-upload" class="hidden w-full rounded-2xl shadow-md" alt="Preview"> <button onclick="processUpload()" class="kids-btn btn-primary w-full py-4">Upload 🚀</button>
      </div>
      <div id="admin-work-list" class="space-y-3 mt-5"></div>
     </div>
@@ -264,16 +256,14 @@
    <div id="modal-student" class="hidden fixed inset-0 modal z-50 flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl p-6 w-full max-w-sm">
      <h3 class="text-2xl font-black mb-5">Tambah Murid 👶</h3>
-     <div class="space-y-3">
-      <input id="st-nama" type="text" placeholder="Nama" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <input id="st-pass" type="text" placeholder="PIN (password untuk akses)" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <input id="st-foto" type="text" placeholder="URL Foto" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <button onclick="saveStudent()" class="kids-btn btn-primary w-full py-4">Simpan</button> <button onclick="hideModal('modal-student')" class="w-full text-slate-400 font-bold">Tutup</button>
+     <div class="space-y-3"><input id="st-nama" type="text" placeholder="Nama" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <input id="st-pass" type="text" placeholder="PIN (password untuk akses)" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <input id="st-foto" type="text" placeholder="URL Foto" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <button onclick="saveStudent()" class="kids-btn btn-primary w-full py-4">Simpan</button> <button onclick="hideModal('modal-student')" class="w-full text-slate-400 font-bold">Tutup</button>
      </div>
     </div>
    </div><!-- Modal Edit Murid -->
    <div id="modal-edit-student" class="hidden fixed inset-0 modal z-50 flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl p-6 w-full max-w-sm">
      <h3 class="text-2xl font-black mb-5">Edit Murid ✏️</h3>
-     <div class="space-y-3">
-      <input id="edit-st-nama" type="text" placeholder="Nama" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <input id="edit-st-pass" type="text" placeholder="PIN" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <input id="edit-st-foto" type="text" placeholder="URL Foto" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <button onclick="saveEditStudent()" class="kids-btn btn-primary w-full py-4">Simpan Perubahan</button> <button onclick="hideModal('modal-edit-student')" class="w-full text-slate-400 font-bold">Tutup</button>
+     <div class="space-y-3"><input id="edit-st-nama" type="text" placeholder="Nama" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <input id="edit-st-pass" type="text" placeholder="PIN" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <input id="edit-st-foto" type="text" placeholder="URL Foto" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <button onclick="saveEditStudent()" class="kids-btn btn-primary w-full py-4">Simpan Perubahan</button> <button onclick="hideModal('modal-edit-student')" class="w-full text-slate-400 font-bold">Tutup</button>
      </div>
     </div>
    </div><!-- Modal Konfirmasi Hapus -->
@@ -284,14 +274,13 @@
      </div>
      <h3 id="confirm-title" class="text-xl font-black mb-2"></h3>
      <p id="confirm-message" class="text-slate-500 mb-6"></p>
-     <div class="flex gap-3">
-      <button onclick="hideModal('modal-confirm')" class="kids-btn bg-slate-200 text-slate-700 flex-1 py-3">Batal</button> <button id="confirm-action-btn" class="kids-btn bg-red-500 text-white flex-1 py-3">Hapus</button>
+     <div class="flex gap-3"><button onclick="hideModal('modal-confirm')" class="kids-btn bg-slate-200 text-slate-700 flex-1 py-3">Batal</button> <button id="confirm-action-btn" class="kids-btn bg-red-500 text-white flex-1 py-3">Hapus</button>
      </div>
     </div>
    </div>
    <script>
 
-const API_URL = ['https://script.google.com/macros/s/AKfycbyLW_X5PHRg-i-2OWa0N9wKSn04bOBMJGrcJig0CYLjPt5f1k7oSsmv5QsBmBfAIsZc/exec'](https://script.google.com/macros/s/AKfycbwrGhzvWcQXMknlpdTo5aClduYCMlczyCMTkKdV2ZsILVwl5WsiPCgUtcz_38fKtN9bqA/exec);
+const API_URL = 'https://script.google.com/macros/s/AKfycbzQxTHW7vDUORaj6h8d_QZFMO24vAU1cHHuYfO2ywvJjQnCVNU7d22gJC6cgZ_cYqCMSA/exec';
 
 let appData = { students: [] };
 let isAdminLoggedIn = false;
@@ -1050,5 +1039,6 @@ window.onload = ()=>{
 
 </script>
   </div>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0c85a37b0b0b4ac',t:'MTc4MTU5NzU3Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0c85a37b0b0b4ac',t:'MTc4MTU5NzU3Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0c8cbc347c5ea81',t:'MTc4MTYwMjIyOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
