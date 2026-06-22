@@ -50,7 +50,8 @@
    <nav class="sticky top-0 z-40 p-3">
     <div class="max-w-6xl mx-auto bg-white rounded-3xl shadow-lg p-4 flex justify-between items-center">
      <h1 data-template-id="app-title" class="canva-text text-2xl font-black text-pink-500"></h1>
-     <div class="flex gap-2 items-center"><button onclick="showView('home')" class="px-4 py-2 rounded-xl hover:bg-pink-50 font-bold">Beranda</button> <button id="admin-nav-btn" onclick="openLogin()" class="kids-btn btn-secondary px-5 py-2 relative notification-badge">Guru 🍎 <span id="notif-floating" class="badge-number hidden"></span></button>
+     <div class="flex gap-2 items-center">
+      <button onclick="showView('home')" class="px-4 py-2 rounded-xl hover:bg-pink-50 font-bold">Beranda</button> <button id="admin-nav-btn" onclick="openLogin()" class="kids-btn btn-secondary px-5 py-2 relative notification-badge">Guru 🍎 <span id="notif-floating" class="badge-number hidden"></span></button>
      </div>
     </div>
    </nav>
@@ -62,9 +63,11 @@
      </div>
      <div id="student-grid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4"></div>
     </section>
-    <section id="view-gallery" class="view hidden space-y-5"><button onclick="showView('home')" class="kids-btn bg-white px-5 py-3 rounded-2xl shadow font-bold">← Kembali</button>
+    <section id="view-gallery" class="view hidden space-y-5">
+     <button onclick="showView('home')" class="kids-btn bg-white px-5 py-3 rounded-2xl shadow font-bold">← Kembali</button>
      <div id="gallery-header" class="card p-6"></div>
-     <div class="flex justify-end"><button id="download-pdf-btn" onclick="downloadStudentPortfolio()" class="kids-btn bg-green-500 text-white px-5 py-3 rounded-2xl shadow font-bold"> <i data-lucide="file-text" style="width:16px;height:16px;display:inline-block;vertical-align:middle;margin-right:6px;"></i> Download Portofolio PDF </button>
+     <div class="flex justify-end">
+      <button id="download-pdf-btn" onclick="downloadStudentPortfolio()" class="kids-btn bg-green-500 text-white px-5 py-3 rounded-2xl shadow font-bold"> <i data-lucide="file-text" style="width:16px;height:16px;display:inline-block;vertical-align:middle;margin-right:6px;"></i> Download Portofolio PDF </button>
      </div>
      <div id="gallery-grid" class="gallery-slider"></div>
     </section>
@@ -75,7 +78,8 @@
       </div><button onclick="logout()" class="text-red-400 font-bold">Keluar</button>
      </div>
      <div class="grid lg:grid-cols-3 gap-5">
-      <div class="space-y-4"><button onclick="showModal('modal-student')" class="kids-btn btn-primary w-full py-4 text-lg">+ Tambah Murid</button>
+      <div class="space-y-4">
+       <button onclick="showModal('modal-student')" class="kids-btn btn-primary w-full py-4 text-lg">+ Tambah Murid</button>
        <div id="admin-student-list" class="space-y-3"></div>
       </div>
       <div class="lg:col-span-2 card p-6">
@@ -84,51 +88,56 @@
       </div>
      </div>
     </section>
-   </main><!-- Modal PIN -->
+   </main>
    <div id="modal-password" class="hidden fixed inset-0 modal z-50 flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl p-7 w-full max-w-sm">
-     <div id="pin-student-info" class="text-center mb-4"><img id="pin-student-avatar" class="w-20 h-20 rounded-full mx-auto object-cover mb-2" alt="Avatar siswa">
+     <div id="pin-student-info" class="text-center mb-4">
+      <img id="pin-student-avatar" class="w-20 h-20 rounded-full mx-auto object-cover mb-2" alt="Avatar siswa">
       <h3 id="pin-student-name" class="text-xl font-black"></h3>
      </div>
      <h3 class="text-2xl font-black text-center mb-4">Masukkan PIN 🔐</h3>
-     <div class="space-y-4"><input type="text" id="pin-input" maxlength="6" inputmode="numeric" class="w-full p-4 text-center text-2xl rounded-2xl bg-slate-100 outline-none tracking-widest" placeholder="••••••">
-      <div class="pin-dots" id="pin-dots">
-       <span class="pin-dot"></span><span class="pin-dot"></span><span class="pin-dot"></span><span class="pin-dot"></span><span class="pin-dot"></span><span class="pin-dot"></span>
+     <div class="space-y-4">
+      <input type="text" id="pin-input" maxlength="6" inputmode="numeric" class="w-full p-4 text-center text-2xl rounded-2xl bg-slate-100 outline-none tracking-widest" placeholder="••••••">
+      <div class="pin-dots" id="pin-dots"><span class="pin-dot"></span><span class="pin-dot"></span><span class="pin-dot"></span><span class="pin-dot"></span><span class="pin-dot"></span><span class="pin-dot"></span>
       </div><button onclick="verifyPassword()" class="kids-btn btn-primary w-full py-4 text-lg">Buka Galeri 🎨</button> <button onclick="hideModal('modal-password')" class="w-full text-slate-400 font-bold">Tutup</button>
      </div>
     </div>
-   </div><!-- Modal Login -->
+   </div>
    <div id="modal-login" class="hidden fixed inset-0 modal z-50 flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl p-7 w-full max-w-sm">
      <h3 class="text-3xl font-black text-center mb-6">Login Guru 🍎</h3>
-     <div class="space-y-3"><input id="login-user" type="text" placeholder="Username" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <input id="login-pass" type="password" placeholder="Password" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <button onclick="handleLogin()" class="kids-btn btn-secondary w-full py-4 text-lg">Login</button> <button onclick="hideModal('modal-login')" class="w-full text-slate-400 font-bold">Tutup</button>
+     <div class="space-y-3">
+      <input id="login-user" type="text" placeholder="Username" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <input id="login-pass" type="password" placeholder="Password" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <button onclick="handleLogin()" class="kids-btn btn-secondary w-full py-4 text-lg">Login</button> <button onclick="hideModal('modal-login')" class="w-full text-slate-400 font-bold">Tutup</button>
      </div>
     </div>
-   </div><!-- Modal Upload -->
+   </div>
    <div id="modal-upload" class="hidden fixed inset-0 modal z-50 flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl w-full max-w-2xl max-h-[90%] overflow-y-auto p-6">
      <div class="flex justify-between items-center mb-5">
       <h3 id="upload-modal-title" class="text-2xl font-black">Kelola Karya</h3><button onclick="hideModal('modal-upload')" class="text-2xl text-slate-400">✖</button>
      </div>
-     <div class="space-y-4 bg-pink-50 p-5 rounded-3xl"><input id="up-judul" type="text" placeholder="Judul karya" class="w-full p-4 rounded-2xl outline-none"> <input id="up-file" type="file" accept="image/*" class="w-full"> <img id="preview-upload" class="hidden w-full rounded-2xl shadow-md" alt="Preview"> <button onclick="processUpload()" class="kids-btn btn-primary w-full py-4">Upload 🚀</button>
+     <div class="space-y-4 bg-pink-50 p-5 rounded-3xl">
+      <input id="up-judul" type="text" placeholder="Judul karya" class="w-full p-4 rounded-2xl outline-none"> <input id="up-file" type="file" accept="image/*" class="w-full"> <img id="preview-upload" class="hidden w-full rounded-2xl shadow-md" alt="Preview"> <button onclick="processUpload()" class="kids-btn btn-primary w-full py-4">Upload 🚀</button>
      </div>
      <div id="admin-work-list" class="space-y-3 mt-5"></div>
     </div>
-   </div><!-- Modal Tambah Murid -->
+   </div>
    <div id="modal-student" class="hidden fixed inset-0 modal z-50 flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl p-6 w-full max-w-sm">
      <h3 class="text-2xl font-black mb-5">Tambah Murid 👶</h3>
-     <div class="space-y-3"><input id="st-nama" type="text" placeholder="Nama" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <input id="st-pass" type="text" placeholder="PIN (password untuk akses)" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <input id="st-foto" type="text" placeholder="URL Foto" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <button onclick="saveStudent()" class="kids-btn btn-primary w-full py-4">Simpan</button> <button onclick="hideModal('modal-student')" class="w-full text-slate-400 font-bold">Tutup</button>
+     <div class="space-y-3">
+      <input id="st-nama" type="text" placeholder="Nama" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <input id="st-pass" type="text" placeholder="PIN (password untuk akses)" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <input id="st-foto" type="text" placeholder="URL Foto" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <button onclick="saveStudent()" class="kids-btn btn-primary w-full py-4">Simpan</button> <button onclick="hideModal('modal-student')" class="w-full text-slate-400 font-bold">Tutup</button>
      </div>
     </div>
-   </div><!-- Modal Edit Murid -->
+   </div>
    <div id="modal-edit-student" class="hidden fixed inset-0 modal z-50 flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl p-6 w-full max-w-sm">
      <h3 class="text-2xl font-black mb-5">Edit Murid ✏️</h3>
-     <div class="space-y-3"><input id="edit-st-nama" type="text" placeholder="Nama" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <input id="edit-st-pass" type="text" placeholder="PIN" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <input id="edit-st-foto" type="text" placeholder="URL Foto" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <button onclick="saveEditStudent()" class="kids-btn btn-primary w-full py-4">Simpan Perubahan</button> <button onclick="hideModal('modal-edit-student')" class="w-full text-slate-400 font-bold">Tutup</button>
+     <div class="space-y-3">
+      <input id="edit-st-nama" type="text" placeholder="Nama" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <input id="edit-st-pass" type="text" placeholder="PIN" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <input id="edit-st-foto" type="text" placeholder="URL Foto" class="w-full p-4 rounded-2xl bg-slate-100 outline-none"> <button onclick="saveEditStudent()" class="kids-btn btn-primary w-full py-4">Simpan Perubahan</button> <button onclick="hideModal('modal-edit-student')" class="w-full text-slate-400 font-bold">Tutup</button>
      </div>
     </div>
-   </div><!-- Modal Konfirmasi -->
+   </div>
    <div id="modal-confirm" class="hidden fixed inset-0 modal z-50 flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl p-6 w-full max-w-sm text-center">
      <div class="text-5xl mb-4">
@@ -136,7 +145,8 @@
      </div>
      <h3 id="confirm-title" class="text-xl font-black mb-2"></h3>
      <p id="confirm-message" class="text-slate-500 mb-6"></p>
-     <div class="flex gap-3"><button onclick="hideModal('modal-confirm')" class="kids-btn bg-slate-200 text-slate-700 flex-1 py-3">Batal</button> <button id="confirm-action-btn" class="kids-btn bg-red-500 text-white flex-1 py-3">Hapus</button>
+     <div class="flex gap-3">
+      <button onclick="hideModal('modal-confirm')" class="kids-btn bg-slate-200 text-slate-700 flex-1 py-3">Batal</button> <button id="confirm-action-btn" class="kids-btn bg-red-500 text-white flex-1 py-3">Hapus</button>
      </div>
     </div>
    </div>
@@ -179,14 +189,22 @@ function showView(id) {
 async function fetchData() {
     toggleLoading(true);
     try {
-        const res = await fetch(API_URL, { method:'POST', body: JSON.stringify({ action:'getInitialData' }) });
+        const res = await fetch(API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain' },
+            body: JSON.stringify({ action: 'getInitialData' }),
+            redirect: 'follow'
+        });
         const json = await res.json();
         if(json.success) {
             appData.students = json.data || [];
             renderHome();
             if(isAdminLoggedIn) renderAdmin();
         }
-    } catch(err) { showToast('Gagal memuat data', 'error'); }
+    } catch(err) {
+        console.error('Fetch error:', err);
+        showToast('Gagal memuat data. Periksa koneksi atau CORS.', 'error');
+    }
     toggleLoading(false);
 }
 
@@ -308,7 +326,7 @@ async function exportPortfolio(id) {
             const k = karya[i];
             doc.setFillColor(255,240,245); doc.rect(0,0,210,25,'F');
             doc.setTextColor(40,40,40); doc.setFontSize(18); doc.text(k.judul, 15, 16);
-            try { const img = await loadImageAsBase64(k.thumb); doc.addImage(img,'JPEG',15,35,180,100); } catch(e){}
+            try { const img = await loadImageAsBase64(k.thumb || k.link); doc.addImage(img,'JPEG',15,35,180,100); } catch(e){}
             let y = 145; doc.setFontSize(11); doc.text('Tanggal: '+new Date(k.date).toLocaleDateString('id-ID'), 15, y); y += 15;
             const chats = (s.percakapan||[]).filter(p=>p.workId===k.id);
             chats.forEach(c => {
@@ -389,12 +407,22 @@ function renderCommentInbox() {
         </div>`).join('');
 }
 
+async function apiCall(payload) {
+    const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify(payload),
+        redirect: 'follow'
+    });
+    return await res.json();
+}
+
 async function replyComment(commentId) {
     const input = document.getElementById(`reply-${commentId}`);
     const text = input.value.trim();
     if(!text) return;
     toggleLoading(true);
-    try { const res = await fetch(API_URL, { method:'POST', body: JSON.stringify({ action:'replyComment', commentId, replyText: text }) }); const json = await res.json(); if(json.success) { await fetchData(); renderAdmin(); showToast('Balasan terkirim!','success'); } else { showToast('Gagal membalas','error'); } } catch(err) { showToast('Gagal membalas','error'); }
+    try { const json = await apiCall({ action:'replyComment', commentId, replyText: text }); if(json.success) { await fetchData(); renderAdmin(); showToast('Balasan terkirim!','success'); } else { showToast('Gagal membalas','error'); } } catch(err) { showToast('Gagal membalas','error'); }
     toggleLoading(false);
 }
 
@@ -405,7 +433,7 @@ function manageKarya(id) {
     const list = document.getElementById('admin-work-list');
     list.innerHTML = (s.karya||[]).map(k => `
         <div class="flex justify-between items-center bg-slate-50 p-3 rounded-2xl">
-            <div class="flex items-center gap-3"><img loading="lazy" src="${k.thumb}" class="w-14 h-14 rounded-xl object-cover" alt="${k.judul}" onerror="this.style.background='#e5e7eb';"><p class="font-black text-sm">${k.judul}</p></div>
+            <div class="flex items-center gap-3"><img loading="lazy" src="${k.thumb || k.link}" class="w-14 h-14 rounded-xl object-cover" alt="${k.judul}" onerror="this.style.background='#e5e7eb';"><p class="font-black text-sm">${k.judul}</p></div>
             <button onclick="deleteKarya('${k.id}')" class="text-red-400 text-xl">🗑️</button>
         </div>`).join('');
     showModal('modal-upload');
@@ -432,7 +460,7 @@ async function processUpload() {
             let w=img.width, h=img.height; if(w>1200){h*=1200/w;w=1200;}
             canvas.width=w; canvas.height=h; canvas.getContext('2d').drawImage(img,0,0,w,h);
             const base64 = canvas.toDataURL('image/jpeg',0.7).split(',')[1];
-            try { const res = await fetch(API_URL, { method:'POST', body: JSON.stringify({ action:'uploadKarya', studentId:currentStudentId, judul, fileName:file.name, fileData:base64 }) }); const json = await res.json(); if(json.success) { document.getElementById('up-judul').value=''; document.getElementById('up-file').value=''; document.getElementById('preview-upload').classList.add('hidden'); await fetchData(); manageKarya(currentStudentId); showToast('Karya berhasil diupload!','success'); } else { showToast('Upload gagal','error'); } } catch(err) { showToast('Upload gagal','error'); }
+            try { const json = await apiCall({ action:'uploadKarya', studentId:currentStudentId, judul, fileName:file.name, fileData:base64 }); if(json.success) { document.getElementById('up-judul').value=''; document.getElementById('up-file').value=''; document.getElementById('preview-upload').classList.add('hidden'); await fetchData(); manageKarya(currentStudentId); showToast('Karya berhasil diupload!','success'); } else { showToast('Upload gagal','error'); } } catch(err) { showToast('Upload gagal','error'); }
             toggleLoading(false);
         }; img.src = e.target.result;
     }; reader.readAsDataURL(file);
@@ -441,7 +469,7 @@ async function processUpload() {
 async function deleteKarya(id) {
     showConfirm('Hapus Karya?','Karya ini akan dihapus permanen.', async()=>{
         toggleLoading(true);
-        try { const res=await fetch(API_URL,{method:'POST',body:JSON.stringify({action:'deleteKarya',workId:id})}); const json=await res.json(); if(json.success){await fetchData();manageKarya(currentStudentId);showToast('Karya dihapus','success');} } catch(err){showToast('Gagal hapus','error');}
+        try { const json = await apiCall({action:'deleteKarya',workId:id}); if(json.success){await fetchData();manageKarya(currentStudentId);showToast('Karya dihapus','success');} } catch(err){showToast('Gagal hapus','error');}
         toggleLoading(false);
     });
 }
@@ -452,7 +480,7 @@ async function saveStudent() {
     const foto=document.getElementById('st-foto').value.trim();
     if(!nama||!pass){showToast('Nama dan PIN wajib diisi','error');return;}
     toggleLoading(true);
-    try { const res=await fetch(API_URL,{method:'POST',body:JSON.stringify({action:'addStudent',id:'S'+Date.now(),nama,pass,foto})}); const json=await res.json(); if(json.success){hideModal('modal-student');document.getElementById('st-nama').value='';document.getElementById('st-pass').value='';document.getElementById('st-foto').value='';await fetchData();renderAdmin();showToast('Murid ditambahkan!','success');} } catch(err){showToast('Gagal tambah siswa','error');}
+    try { const json = await apiCall({action:'addStudent',id:'S'+Date.now(),nama,pass,foto}); if(json.success){hideModal('modal-student');document.getElementById('st-nama').value='';document.getElementById('st-pass').value='';document.getElementById('st-foto').value='';await fetchData();renderAdmin();showToast('Murid ditambahkan!','success');} } catch(err){showToast('Gagal tambah siswa','error');}
     toggleLoading(false);
 }
 
@@ -471,7 +499,7 @@ async function saveEditStudent() {
     const foto=document.getElementById('edit-st-foto').value.trim();
     if(!nama||!pass){showToast('Nama dan PIN wajib diisi','error');return;}
     toggleLoading(true);
-    try { const res=await fetch(API_URL,{method:'POST',body:JSON.stringify({action:'editStudent',id:editingStudentId,nama,pass,foto})}); const json=await res.json(); if(json.success){hideModal('modal-edit-student');await fetchData();renderAdmin();showToast('Data diperbarui!','success');} } catch(err){showToast('Gagal edit','error');}
+    try { const json = await apiCall({action:'editStudent',id:editingStudentId,nama,pass,foto}); if(json.success){hideModal('modal-edit-student');await fetchData();renderAdmin();showToast('Data diperbarui!','success');} } catch(err){showToast('Gagal edit','error');}
     toggleLoading(false);
 }
 
@@ -479,7 +507,7 @@ async function deleteStudent(id) {
     const s=appData.students.find(x=>x.id===id);
     showConfirm('Hapus Siswa?',`${s?.nama||'Siswa'} akan dihapus permanen.`, async()=>{
         toggleLoading(true);
-        try { const res=await fetch(API_URL,{method:'POST',body:JSON.stringify({action:'deleteStudent',id})}); const json=await res.json(); if(json.success){await fetchData();renderAdmin();showToast('Siswa dihapus','success');} } catch(err){showToast('Gagal hapus','error');}
+        try { const json = await apiCall({action:'deleteStudent',id}); if(json.success){await fetchData();renderAdmin();showToast('Siswa dihapus','success');} } catch(err){showToast('Gagal hapus','error');}
         toggleLoading(false);
     });
 }
@@ -488,11 +516,11 @@ async function sendComment(workId) {
     const input=document.getElementById(`input-chat-${workId}`);
     const text=input.value.trim(); if(!text) return;
     toggleLoading(true);
-    try { const res=await fetch(API_URL,{method:'POST',body:JSON.stringify({action:'addComment',workId,studentId:currentStudentId,comment:text})}); const json=await res.json(); if(json.success){input.value='';await fetchData();renderGallery(currentStudentId);showToast('Komentar terkirim!','success');} } catch(err){showToast('Gagal kirim','error');}
+    try { const json = await apiCall({action:'addComment',workId,studentId:currentStudentId,comment:text}); if(json.success){input.value='';await fetchData();renderGallery(currentStudentId);showToast('Komentar terkirim!','success');} } catch(err){showToast('Gagal kirim','error');}
     toggleLoading(false);
 }
 
 window.onload = () => { fetchData(); lucide.createIcons(); };
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0f9f0f6c61db4ac',t:'MTc4MjExNzU1NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0fa159b92eea6d7',t:'MTc4MjExOTA1NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
